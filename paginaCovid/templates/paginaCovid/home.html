@@ -1,0 +1,44 @@
+{% extends "paginaCovid/base.html" %}
+{% load static %}
+{% block content %}
+
+<form method="GET" >
+  <input type="text" name="prd">
+  <input type="submit" value="Buscar">
+  <script src="media/js/jquery-3.5.1.min.js"></script>
+</form>
+
+
+
+  {% for carga in cargasss %}
+  <section class="page-section clearfix">
+    <div class="container">
+      <div class="intro">
+        <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{carga.foto.url}}" alt="" style="width: 400px;">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4" >
+            <span class="section-heading-lower">{{carga.nombre}}</span>
+          </h2>
+          <p style="display: none;">bibliografia: {{carga.bibliografia}}
+            fecha de nacimiento:{{carga.fecha_nacimiento}}
+            fecha de defuncion:{{carga.fecha_defuncion}}
+          </p>
+          <button>+</button>
+            <script>
+              $(function(){
+                $('button').click(function(){
+                  $('p').slideDown();
+                   });
+                 });
+            </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  {% endfor %}
+
+
+
+{% endblock %}

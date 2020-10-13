@@ -1,0 +1,20 @@
+{% extends "paginaCovid/base.html" %}
+{% load static %}
+{% block content %}
+	<div>
+		<center>
+			<h3 style="color: white;">agregar persona fallecida por covid-19...</h3>
+			<p style="color: white;">ingrese un Email, asi le llega el usuario con el cual puede ingresar los datos del difunto</p>
+			<br>
+			<form action="/cargas" method="POST">{% csrf_token %}
+			<p><input type="text" name="email" placeholder="Email..." style="background-color: rgba(24, 64, 8); color: white;"></p>	
+			<input  class="btn btn-success" type="submit" value="Enviar">
+			</form>
+		</center>
+	</div>
+	<br>
+	<div>
+		<br>
+		<center><a href="/admin">ya tengo el usuario y contraseña</a></center>	
+	</div>
+{% endblock %}
